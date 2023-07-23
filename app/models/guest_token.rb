@@ -1,0 +1,2 @@
+class GuestToken < ApplicationRecord
+end
