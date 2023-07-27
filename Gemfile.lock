@@ -109,7 +109,10 @@ GEM
     nio4r (2.5.9)
     nokogiri (1.15.3-arm64-darwin)
       racc (~> 1.4)
+    nokogiri (1.15.3-x64-mingw-ucrt)
+      racc (~> 1.4)
     pg (1.5.3)
+    pg (1.5.3-x64-mingw-ucrt)
     puma (5.6.6)
       nio4r (~> 2.0)
     racc (1.7.1)
@@ -151,6 +154,8 @@ GEM
     timeout (0.4.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+    tzinfo-data (1.2023.3)
+      tzinfo (>= 1.0.0)
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
@@ -159,6 +164,7 @@ GEM
 PLATFORMS
   arm64-darwin-21
   arm64-darwin-22
+  x64-mingw-ucrt
 
 DEPENDENCIES
   bootsnap
