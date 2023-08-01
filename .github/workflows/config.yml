@@ -3,33 +3,54 @@ name: Actions 😎
 on:
   push:
     branches:
-      main
+    - main
 
 jobs:
   build:
-    name: Build my project ✨
     runs-on: ubuntu-latest
     steps:
-      # Checkout (without LFS)
-      - name: Checkout repository
-        uses: actions/checkout@v3
 
-      # fourth implementation
-      # - name: Configure AWS Credentials
-      #   uses: aws-actions/configure-aws-credentials@v2
-      #   with:
-      #     aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
-      #     aws-secret-access-key: ${{ secrets.AWS_SECRET_KEY }}
-      #     aws-region: eu-west-2
+    - name: Checkout source code
+      uses: actions/checkout@v2
 
-      # - name: Sync output to S3
-      #   run: |
-      #     aws s3 sync ./build/WebGL/WebGL s3://mdk-2023 --delete
-      #     aws s3 cp ./build/WebGL/WebGL/Build/WebGL.data.gz s3://mdk-2023/Build/WebGL.data.gz --content-type 'application/octet-stream' --content-encoding 'gzip'
-      #     aws s3 cp ./build/WebGL/WebGL/Build/WebGL.framework.js.gz s3://mdk-2023/Build/WebGL.framework.js.gz --content-type 'application/wasm' --content-encoding 'gzip'
-      #     aws s3 cp ./build/WebGL/WebGL/Build/WebGL.loader.js s3://mdk-2023/Build/WebGL.loader.js --content-type 'application/javascript'
-      #     aws s3 cp ./build/WebGL/WebGL/Build/WebGL.wasm.gz s3://mdk-2023/Build/WebGL.wasm.gz --content-type 'application/wasm' --content-encoding 'gzip'
+    - name: Generate deployment package
+      run: zip -r deploy.zip . -x '*.git*'
 
+    - name: Deploy to EB
+      uses: einaregilsson/beanstalk-deploy@v21
+      with:
+        aws_access_key: ${{ secrets.AWS_ACCESS_ID }}
+        aws_secret_key: ${{ secrets.AWS_ACCESS_KEY }}
+        application_name: MyApplicationName
+        environment_name: MyApplication-Environment
+        version_label: 12345
+        region: eu-west-2
+        deployment_package: deploy.zip
+#   push:
+#     branches:
+#       main
+
+# jobs:
+#   build:
+#     name: Build my project ✨
+#     runs-on: ubuntu-latest
+#     steps:
+#       # Checkout (without LFS)
+#       - name: Checkout repository
+#         uses: actions/checkout@v3
+
+#       # fourth implementation
+#       - name: Configure AWS Credentials
+#         uses: aws-actions/configure-aws-credentials@v2
+#         with:
+#           aws-access-key-id: ${{ secrets.AWS_ACCESS_ID }}
+#           aws-secret-access-key: ${{ secrets.AWS_ACCESS_KEY }}
+#           aws-region: eu-west-2
+
+#       - name: Sync output to S3
+#         run: |
+#           aws s3 sync ./build/WebGL/WebGL s3://mdk-2023-bucket --delete
+         
       # third implementation
       # - name: Setup SSH
       #   uses: webfactory/ssh-agent@v0.5.3
