@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   # get "request_guest_token", to
   resources :guest_tokens
   resources :stage_two_stats
+  resources :leaderboards
   # Defines the root path route ("/")
   # root "articles#index"
 end
