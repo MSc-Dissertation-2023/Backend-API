@@ -1,0 +1,2 @@
+class StageTwoStat < ApplicationRecord
+end
