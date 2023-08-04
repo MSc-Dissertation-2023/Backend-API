@@ -3,7 +3,7 @@ class LeaderboardsController < ApplicationController
         records = Leaderboard.all
         records = records.order(score: :desc).limit(10)
         render json: records
-    end
+    end 
 
     def create
         params['name']
