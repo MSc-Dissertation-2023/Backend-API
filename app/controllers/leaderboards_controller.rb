@@ -1,7 +1,7 @@
 class LeaderboardsController < ApplicationController
     def index
         records = Leaderboard.all
-        records = records.order(score: :desc).limit(10)
+        records = records.order(score: :desc).limit(500)
         render json: records
     end
 
