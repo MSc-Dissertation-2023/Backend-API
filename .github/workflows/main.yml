@@ -14,6 +14,6 @@ jobs:
         uses: dokku/github-action@master
         with:
           branch: main
-          # git_remote_url: 'ssh://dokku@146.190.111.95:22/excelpp'
+          git_push_flags: --force
           git_remote_url: ${{ secrets.DOKKU_GIT_REMOTE }}
           ssh_private_key: ${{ secrets.DOKKU_SSH_PRIVATE_KEY }}
