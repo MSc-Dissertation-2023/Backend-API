@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :guest_tokens
   resources :stage_two_stats
   resources :leaderboards
+  resources :stage_one_stats
   # Defines the root path route ("/")
   # root "articles#index"
 end
