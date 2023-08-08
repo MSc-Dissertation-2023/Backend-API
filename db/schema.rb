@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_03_103533) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_08_091935) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -26,6 +26,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_03_103533) do
     t.integer "score"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "stage_one_stats", force: :cascade do |t|
+    t.integer "health"
+    t.integer "time"
+    t.string "token"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["token"], name: "index_stage_one_stats_on_token"
   end
 
   create_table "stage_two_stats", force: :cascade do |t|

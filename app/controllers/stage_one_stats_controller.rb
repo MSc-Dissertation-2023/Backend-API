@@ -1,10 +1,10 @@
 class StageOneStatsController < ApplicationController
     def index
-        records = StageOneStats.all
+        records = StageOneStat.all
         render json: records
     end
 
     def create
-        StageOneStats.create(health: params['health'], time: params['time'], token: params['token'])
+        StageOneStat.create(health: params['health'], time: params['time'], token: params['token'])
     end
 end
