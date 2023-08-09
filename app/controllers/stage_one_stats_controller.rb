@@ -5,6 +5,6 @@ class StageOneStatsController < ApplicationController
     end
 
     def create
-        StageOneStat.create(health: params['health'], time: params['time'], token: params['token'])
+        StageOneStat.create(health: params['health'], time: params['time'], token: params['token'], maze_algorithm: params['maze_algorithm'])
     end
 end
