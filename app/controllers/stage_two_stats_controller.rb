@@ -1,6 +1,11 @@
 class StageTwoStatsController < ApplicationController
-  # def index
-  # end
+
+  def index
+    stats = StageTwoStat.all.order(:created_at)
+
+    render json: stats, status: :ok
+  end
+
   def create
     StageTwoStat.create(
       kills: params['kills'],
