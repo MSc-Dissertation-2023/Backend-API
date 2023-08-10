@@ -1,0 +1,2 @@
+class StageTwoEnemyMetric < ApplicationRecord
+end
