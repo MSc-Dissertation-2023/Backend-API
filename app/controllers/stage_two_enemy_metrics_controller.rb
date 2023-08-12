@@ -1,8 +1,11 @@
 class StageTwoEnemyMetricsController < ApplicationController
   def index
-    stats = StageTwoEnemyMetric.all.order(:created_at)
+    @stats = StageTwoEnemyMetric.all.order(:created_at)
 
-    render json: stats, status: :ok
+    respond_to do |format|
+      format.json { render json: @stats, status: :ok }
+      format.html
+    end
   end
 
   def create

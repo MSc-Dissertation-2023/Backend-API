@@ -37,7 +37,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_10_115034) do
     t.string "maze_algorithm"
     t.index ["token"], name: "index_stage_one_stats_on_token"
   end
-  
+
   create_table "stage_two_ddas", force: :cascade do |t|
     t.float "player_fitness"
     t.float "enemy_fitness"
