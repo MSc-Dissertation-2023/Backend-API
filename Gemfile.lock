@@ -254,7 +254,7 @@ DEPENDENCIES
   rack-cors
   rails (~> 7.0.6)
   redis (~> 4.0)
-  sass-rails
+  sass-rails (>= 6)
   selenium-webdriver
   slim-rails
   sprockets-rails
