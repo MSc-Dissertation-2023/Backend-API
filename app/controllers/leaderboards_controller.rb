@@ -1,13 +1,15 @@
 class LeaderboardsController < ApplicationController
-    def index
-        records = Leaderboard.all
-        records = records.order(score: :desc).limit(500)
-        render json: records
-    end
+  def index
+    @records = Leaderboard.all.order(score: :desc).limit(500)
 
-    def create
-        params['name']
-        params['score']
-        Leaderboard.create(name: params['name'], score: params['score'])
+    respond_to do |format|
+        format.json { render json: @records }
+        format.html
     end
+  end
+
+  def create
+    Leaderboard.create(name: params['name'], score: params['score'])
+    render json: { message: 'Score Saved' }, status: :ok
+  end
 end

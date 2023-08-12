@@ -8,6 +8,6 @@ class GuestTokensController < ApplicationController
     token = JWT.encode payload, nil, 'none'
     GuestToken.create(token: token)
 
-    render json: token
+    render json: token, status: :ok
   end
 end

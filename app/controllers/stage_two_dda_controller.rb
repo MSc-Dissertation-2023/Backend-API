@@ -1,8 +1,11 @@
 class StageTwoDdaController < ApplicationController
   def index
-    stats = StageTwoDda.all.order(:created_at)
+    @stats = StageTwoDda.all.order(:created_at)
 
-    render json: stats, status: :ok
+    respond_to do |format|
+      format.json { render json: @stats, status: :ok }
+      format.html
+    end
   end
 
   def create
@@ -13,6 +16,6 @@ class StageTwoDdaController < ApplicationController
       token: params['token']
     )
 
-    render json: { message: 'created' }, status: :ok
+    render json: { message: 'Stage Two DDA Stat saved' }, status: :ok
   end
 end
