@@ -1,0 +1,14 @@
+h1 Stage Two DDA
+
+table
+  th Player Fitness
+  th Enemy Fitness
+  th Weight Adjustment
+  th Token
+tbody
+  - @records.each do |record|
+    tr
+      td = record.player_fitness
+      td = record.enemy_fitness
+      td = record.weight_adjustment
+      td = record.maze_algorithm
