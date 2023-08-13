@@ -7,7 +7,7 @@ namespace :db do
     # you may need to set up a .pgpass file if your local database config  requires password to restore
     # http://www.postgresql.org/docs/9.1/static/libpq-pgpass.html
 
-    db_name = 'mdk-2023_development'
+    db_name = 'mdk_2023_development'
     db_user_name = 'yushengchang'
 
     temp_file_name = 'latest.dump'
@@ -19,7 +19,7 @@ namespace :db do
 
     puts "Downloading latest DB dump from Dokku"
 
-    system "ssh root@178.62.16.70 dokku postgres:export mdk-2023 > #{temp_file_name}"
+    system "ssh root@178.62.16.70 dokku postgres:export mdk-2023-database > #{temp_file_name}"
 
     puts "Finished downloading dump. Restoring to #{db_name}"
 

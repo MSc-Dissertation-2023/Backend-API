@@ -12,4 +12,8 @@ class LeaderboardsController < ApplicationController
     Leaderboard.create(name: params['name'], score: params['score'])
     render json: { message: 'Score Saved' }, status: :ok
   end
+
+  def download
+    
+  end
 end
