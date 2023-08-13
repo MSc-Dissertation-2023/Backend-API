@@ -2,14 +2,14 @@ h1 Stage One Stats
 
 table
   thead
-    th Token
     th Health
     th Time
     th Maze Algo
+    th Token
   tbody
     - @records.each do |record|
       tr
-        td = record.token
         td = record.health
         td = record.time
         td = record.maze_algorithm
+        td = record.token

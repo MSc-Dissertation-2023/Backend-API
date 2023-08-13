@@ -2,10 +2,12 @@ h1 Leaderboards
 
 table
   thead
+    th
     th Name
     th Score
   tbody
-    - @records.each do |record|
+    - @records.each_with_index do |record, index|
       tr
+        td = index + 1
         td = record.name
         td = record.score
