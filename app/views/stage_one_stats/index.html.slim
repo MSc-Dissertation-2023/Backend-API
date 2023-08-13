@@ -1,14 +1,15 @@
 h1 Stage One Stats
 
 table
-  th Token
-  th Health
-  th Time
-  th Maze Algo
-tbody
-  - @records.each do |record|
-    tr
-      td = record.token
-      td = record.health
-      td = record.time
-      td = record.maze_algorithm
+  thead
+    th Token
+    th Health
+    th Time
+    th Maze Algo
+  tbody
+    - @records.each do |record|
+      tr
+        td = record.token
+        td = record.health
+        td = record.time
+        td = record.maze_algorithm

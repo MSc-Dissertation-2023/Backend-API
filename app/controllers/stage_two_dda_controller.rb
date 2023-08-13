@@ -1,9 +1,9 @@
 class StageTwoDdaController < ApplicationController
   def index
-    @stats = StageTwoDda.all.order(:created_at)
+    @records = StageTwoDda.all.order(:created_at)
 
     respond_to do |format|
-      format.json { render json: @stats, status: :ok }
+      format.json { render json: @records, status: :ok }
       format.html
     end
   end
