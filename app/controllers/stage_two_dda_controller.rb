@@ -18,4 +18,14 @@ class StageTwoDdaController < ApplicationController
 
     render json: { message: 'Stage Two DDA Stat saved' }, status: :ok
   end
+
+  def download
+    @records = StageTwoDda.all
+
+    respond_to do |format|
+      format.csv do
+        send_data @records.to_csv, filename: "[MDK2023] Stage Two DDA - (#{DateTime.current.strftime('%Y-%m-%d_%H-%M-%S')}).csv"
+      end
+    end
+  end
 end

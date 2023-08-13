@@ -20,4 +20,14 @@ class StageTwoEnemyMetricsController < ApplicationController
 
     render json: { message: 'created' }, status: :ok
   end
+
+  def download
+    @records = StageTwoEnemyMetric.all.order(:created_at)
+
+    respond_to do |format|
+      format.csv do
+        send_data @records.to_csv, filename: "[MDK2023] Stage Two Enemy Metric - (#{DateTime.current.strftime('%Y-%m-%d_%H-%M-%S')}).csv"
+      end
+    end
+  end
 end
