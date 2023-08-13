@@ -14,7 +14,7 @@ class StageTwoEnemyMetric < ApplicationRecord
           stat.previous_fitness,
           stat.live_enemies_count,
           stat.dead_enemies_count,
-          stat.token
+          stat.token,
           stat.created_at
         ]
       end
