@@ -1,6 +1,6 @@
 h1 Master of Dungeons
 
-p = button_to 'Download All Data', download_welcome_index_path(format: :zip)
+p = button_to 'Download All Data', download_welcome_index_path(format: :zip), method: :get
 p = link_to 'Leaderboards', leaderboards_path
 p = link_to 'Stage One Stats', stage_one_stats_path
 p = link_to 'Stage Two DDA', stage_two_dda_index_path
