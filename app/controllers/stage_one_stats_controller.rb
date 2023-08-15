@@ -14,6 +14,7 @@ class StageOneStatsController < ApplicationController
       time: params['time'],
       token: params['token'],
       maze_algorithm: params['maze_algorithm']
+      maze_size: params['maze_size']
     )
     render json: { message: 'Stage One Stat Saved' }, status: :ok
   end
