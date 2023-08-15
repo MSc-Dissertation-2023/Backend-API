@@ -1,0 +1,23 @@
+h1 Stage Two Stats
+
+= button_to 'Download CSV', download_stage_two_stats_path(format: :csv), method: :get
+
+table
+  thead
+    th Kills
+    th Actions
+    th Timer
+    th Hits Taken
+    th Total Damage Taken
+    th Hit Miss Ratio
+    th Token
+  tbody
+    - @records.each do |record|
+      tr
+        td = record.kills
+        td = record.actions
+        td = record.timer
+        td = record.hits_taken
+        td = record.total_damage_taken
+        td = record.hit_miss_ratio
+        td = record.token

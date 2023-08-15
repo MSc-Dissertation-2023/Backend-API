@@ -17,6 +17,7 @@
 /tmp/pids/*
 !/tmp/pids/
 !/tmp/pids/.keep
+/tmp_zip_dir/*
 
 # Ignore uploaded files in development.
 /storage/*
@@ -25,5 +26,10 @@
 !/tmp/storage/
 !/tmp/storage/.keep
 
+/public/assets
+
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+# Ignore the local backup
+latest.dump

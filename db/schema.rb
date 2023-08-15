@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema[7.0].define(version: 2023_08_15_084732) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -37,6 +39,26 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_15_084732) do
     t.string "maze_algorithm"
     t.integer "maze_size"
     t.index ["token"], name: "index_stage_one_stats_on_token"
+  end
+
+  create_table "stage_two_ddas", force: :cascade do |t|
+    t.float "player_fitness"
+    t.float "enemy_fitness"
+    t.float "weight_adjustment"
+    t.string "token"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "stage_two_enemy_metrics", force: :cascade do |t|
+    t.float "total_fitness"
+    t.float "current_fitness"
+    t.float "previous_fitness"
+    t.integer "live_enemies_count"
+    t.integer "dead_enemies_count"
+    t.string "token"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "stage_two_stats", force: :cascade do |t|

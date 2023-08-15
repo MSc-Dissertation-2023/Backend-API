@@ -1,0 +1,17 @@
+h1 Stage Two DDA
+
+= button_to 'Download CSV', download_stage_two_dda_index_path(format: :csv), method: :get
+
+table
+  thead
+    th Player Fitness
+    th Enemy Fitness
+    th Weight Adjustment
+    th Token
+  tbody
+    - @records.each do |record|
+      tr
+        td = record.player_fitness
+        td = record.enemy_fitness
+        td = record.weight_adjustment
+        td = record.token

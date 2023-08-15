@@ -4,15 +4,24 @@ on:
   push:
     branches:
       - main
+      -
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - name: Push to dokku
         uses: dokku/github-action@master
         with:
-          # git_remote_url: 'ssh://dokku@146.190.111.95:22/excelpp'
+          branch: main
+          git_push_flags: --force
           git_remote_url: ${{ secrets.DOKKU_GIT_REMOTE }}
           ssh_private_key: ${{ secrets.DOKKU_SSH_PRIVATE_KEY }}
+    # steps:
+      # - name: Checkout repository
+        # uses: actions/checkout@v3
+      # - name: git
+        # run: git push dokku
