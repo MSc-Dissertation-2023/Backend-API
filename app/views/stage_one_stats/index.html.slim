@@ -7,6 +7,7 @@ table
     th Health
     th Time
     th Maze Algo
+    th Maze Size
     th Token
   tbody
     - @records.each do |record|
@@ -14,4 +15,5 @@ table
         td = record.health
         td = record.time
         td = record.maze_algorithm
+        td = record.maze_size
         td = record.token
